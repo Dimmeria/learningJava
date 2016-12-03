@@ -1,3 +1,6 @@
+//Importing input scanner
+import java.util.Scanner;
+
 
 class Animal {
   /* A generic animal class
@@ -12,7 +15,17 @@ class Animal {
     type = "";
   }
 
-  Animal( String t="", int a=0 ) {
+  Animal( String t ) {
+    age = 0;
+    type = t;
+  }
+
+  Animal( int a) {
+    age = a;
+    type = "";
+  }
+
+  Animal( String t, int a ) {
     age = a;
     type = t;
   }
@@ -41,8 +54,24 @@ public class TestyThing {
   * structures
   */
   public static void main(String[] args) {
-    Animal tiger = new Animal( "Tiger", 13  );
+    Scanner scanner = new Scanner(System.in);
+  //Input Scanner
 
-    System.out.println(tiger.getAge());
+  //Collecting Input
+    System.out.println("Enter the animal you would like to have:");
+    String species;
+    species = scanner.next();
+    System.out.println("Enter the age you would like it to be:");
+    int age;
+    age = scanner.nextInt();
+
+    Animal animal = new Animal( species, age );
+  //Instantiating an object with collected data
+
+    System.out.println("The animal you selected:");
+    System.out.println(animal.getType());
+    System.out.println("The age of the animal you selected:");
+    System.out.println(animal.getAge());
+  //Outputting data from the object
   }
 }
